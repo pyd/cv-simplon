@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;900&display=swap');
+
+// vars
+$primary-color: #7ed2f8;
+$secondary-color: pink;
+$primary-text-color: white;
+
+/* TODO: ajouter un bouton back dans les titlebar pour retour à la home page */
+
+/* Global */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 1 rem;
+    color: $primary-text-color;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* two halfs are side by side in landscape and one on another in portrait */
+@media screen and (orientation:portrait) {
+    .page {
+        flex-direction: column;
+    }
+    .page .titlebar {
+        padding: 1em 0;
+    }
+} @media screen and (orientation:landscape) {
+    .page {
+        flex-direction: row;
+    }
+    .page .titlebar {
+        padding: 0 1em;
+        writing-mode: tb-rl;
+        transform: rotate(-180deg);
+    }
+    .page .titlebar .back-link {
+        margin-top: 70px;
+        transform: rotate(180deg);
+    }
+}
+
+/* Home page : split in 2 vertically or horizontally depending on device orientation */
+#home, #competences, #profil {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-grow: 1; 
+}
+
+/* 2 children : identity, job / nav menu */
+#home > * {
+    flex-basis: 50%;
+}
+
+/* Identity side : First, last names and job  */
+#home .whoami {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 900;
+    font-size: 2em;
+    color: $primary-text-color;
+}
+
+/* center first, last and job in each line */
+#home .whoami .item {
+    text-align: center;
+}
+
+/* modify font sizes so each line has the same width */
+#home .whoami .first {
+    font-size: 1em;
+}
+#home .whoami .last {
+    font-size: 1.18em;
+}
+#home .whoami .job {
+    font-size: 1.28em;
+    color: $primary-color;
+    background-color: white;
+    opacity: .5;
+}
+#home .whoami a:hover {
+    background-color: $secondary-color;
+}
+
+/* Nav side  */
+#home nav {
+    background-color: $secondary-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+}
+
+#home nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    flex-basis: 100%;
+    gap: .1em;
+}
+
+#home nav li {
+    flex-grow: 1;
+}
+
+#home nav li a {
+    display: block;
+    padding: 1em 0;
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-transform: capitalize;
+}
+
+#home nav li a:hover {
+    background-color: $primary-color;
+}
+
+/* Page Compétences */
+#competences {
+    display: flex;
+    // flex-direction: row;
+}
+
+.page .titlebar {
+    background-color: $secondary-color;
+    text-align: center;
+    // padding: 0 1em;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    // writing-mode: tb-rl;
+    // transform: rotate(-180deg);
+}
+
+.page .content {
+    background-color: $primary-color;
+    flex-grow: 1;
+}

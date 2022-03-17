@@ -1,0 +1,192 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;900&display=swap");
+/* TODO: ajouter un bouton back dans les titlebar pour retour à la home page */
+/* Global */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 1 rem;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* two halfs are side by side in landscape and one on another in portrait */
+@media screen and (orientation: portrait) {
+  .page {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .page .titlebar {
+    padding: 1em 0;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .page {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .page .titlebar {
+    padding: 0 1em;
+    -webkit-writing-mode: tb-rl;
+        -ms-writing-mode: tb-rl;
+            writing-mode: tb-rl;
+    -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
+  }
+  .page .titlebar .back-link {
+    margin-top: 70px;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+/* Home page : split in 2 vertically or horizontally depending on device orientation */
+#home, #competences, #profil {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+/* 2 children : identity, job / nav menu */
+#home > * {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+/* Identity side : First, last names and job  */
+#home .whoami {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #7ed2f8;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-size: 2em;
+  color: white;
+}
+
+/* center first, last and job in each line */
+#home .whoami .item {
+  text-align: center;
+}
+
+/* modify font sizes so each line has the same width */
+#home .whoami .first {
+  font-size: 1em;
+}
+
+#home .whoami .last {
+  font-size: 1.18em;
+}
+
+#home .whoami .job {
+  font-size: 1.28em;
+  color: #7ed2f8;
+  background-color: white;
+  opacity: .5;
+}
+
+#home .whoami a:hover {
+  background-color: pink;
+}
+
+/* Nav side  */
+#home nav {
+  background-color: pink;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3em;
+}
+
+#home nav ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  padding: 0;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  gap: .1em;
+}
+
+#home nav li {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#home nav li a {
+  display: block;
+  padding: 1em 0;
+  text-align: center;
+  width: 100%;
+  color: white;
+  text-transform: capitalize;
+}
+
+#home nav li a:hover {
+  background-color: #7ed2f8;
+}
+
+/* Page Compétences */
+#competences {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page .titlebar {
+  background-color: pink;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+}
+
+.page .content {
+  background-color: #7ed2f8;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+/*# sourceMappingURL=main.css.map */
