@@ -1,14 +1,26 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;900&display=swap");
-/* TODO: ajouter un bouton back dans les titlebar pour retour à la home page */
-/* Global */
+.theme-light {
+  --bg-primary: #bed9e5;
+  --bg-secondary: rgb(245, 208, 234);
+  --txt-primary: rgb(17, 14, 14);
+  --txt-secondary: rgb(54, 11, 18);
+}
+
+.theme-dark {
+  --bg-primary: #06292E;
+  --bg-secondary: #0B4047;
+  --color-accent: #12cdea;
+  --txt-primary: #ffffff;
+  --txt-secondary: white;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   font-size: 1 rem;
-  color: white;
+  color: green;
 }
 
 a {
@@ -16,7 +28,6 @@ a {
   color: inherit;
 }
 
-/* two halfs are side by side in landscape and one on another in portrait */
 @media screen and (orientation: portrait) {
   .page {
     -webkit-box-orient: vertical;
@@ -56,8 +67,7 @@ a {
   }
 }
 
-/* Home page : split in 2 vertically or horizontally depending on device orientation */
-#home, #competences, #profil {
+.page {
   width: 100%;
   min-height: 100%;
   height: 100%;
@@ -69,13 +79,13 @@ a {
           flex-grow: 1;
 }
 
-/* 2 children : identity, job / nav menu */
+/****  HOME PAGE : one half is my identity & job, the other is nav **************************************/
 #home > * {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
 }
 
-/* Identity side : First, last names and job  */
+/****  HOME - WHOAMI ************************************************************************************/
 #home .whoami {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,19 +100,18 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #7ed2f8;
+  background-color: var(--bg-primary);
   font-family: 'Titillium Web', sans-serif;
   font-weight: 900;
   font-size: 2em;
-  color: white;
-}
-
-/* center first, last and job in each line */
-#home .whoami .item {
+  color: var(--txt-primary);
   text-align: center;
 }
 
-/* modify font sizes so each line has the same width */
+#home .whoami > * {
+  padding: 1em;
+}
+
 #home .whoami .first {
   font-size: 1em;
 }
@@ -113,18 +122,18 @@ a {
 
 #home .whoami .job {
   font-size: 1.28em;
-  color: #7ed2f8;
-  background-color: white;
-  opacity: .5;
 }
 
 #home .whoami a:hover {
-  background-color: pink;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--text-primary);
 }
 
-/* Nav side  */
+/****  HOME - NAV  *******************************************************************************/
 #home nav {
-  background-color: pink;
+  background-color: var(--bg-secondary);
+  color: var(--txt-secondary);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,46 +164,15 @@ a {
   gap: .1em;
 }
 
-#home nav li {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
 #home nav li a {
   display: block;
   padding: 1em 0;
   text-align: center;
   width: 100%;
-  color: white;
   text-transform: capitalize;
 }
 
-#home nav li a:hover {
-  background-color: #7ed2f8;
-}
-
-/* Page Compétences */
-#competences {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.page .titlebar {
-  background-color: pink;
-  text-align: center;
-  font-size: 1.6em;
-  text-transform: uppercase;
-}
-
-.page .content {
-  background-color: #7ed2f8;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
+/****  PAGES : TITLEBAR **************************************************************************/
 header.titlebar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -202,9 +180,22 @@ header.titlebar {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  text-align: center;
+  font-size: 1.6em;
+  background-color: var(--bg-secondary);
+  color: var(--txt-primary);
 }
 
 header.titlebar .title {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+/****  PAGES : CONTENT ******************************************************/
+.page .content {
+  background-color: var(--bg-primary);
+  color: var(--txt-secondary);
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;

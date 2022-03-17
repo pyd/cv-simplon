@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="theme-light">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:wght@300;400&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <title>pyd</title>
 </head>
+
 <body>
     <div id="home" class="page">
         <div class="whoami">
@@ -23,6 +26,7 @@
             <ul>
                 <li><a href="competences.html">compétences</a></li>
                 <li><a href="formations.html">formations</a></li>
+                <li><a href="hobbies.html">hobbies</a></li>
                 <!-- <li><a href="#">Intérêts</a></li>
                 <li><a href="#">Soft skills</a></li>
                 <li><a href="#">Portfolio</a></li> -->
@@ -30,30 +34,53 @@
             </ul>
         </nav>
     </div>
-    <!-- <header> -->
-        <!-- <div class="top half">
-            <div class="right item">Changer de perspective</div>
-        </div> -->
-        <!-- <div class="top">CV perspective</div>
-        <div class="bottom half">
-            <div class="left item">
-                <img src="https://via.placeholder.com/150" alt="ma photo">
-            </div>
-            <div class="right item">
-                <div>Pierre-Yves DELETTRE</div>
-                <div>Développeur web</div>
-            </div>
-        </div>
-    </header>
+    <div class="container">
+        <button id="switch" onclick="toggleTheme()">theme</button>
+    </div>
+    <script>
+        // dark/light theme manager
+        const theme = {
+            // set theme : keep theme name in storage and set <html> class
+            // set : function(name) {
+            //     localStorage.setItem('theme', name);
+            //     document.documentElement.className = name;
+            // },
+            // switch theme
+            // toggle: function() {
+            //     if (localStorage.getItem('theme') === 'theme-dark') {
+            //         set('theme-light');
+            //     } else {
+            //         set('theme-dark');
+            //     }
+            // }
+        }
 
-    <nav>
-        <ul>
-            <li>compétences</li>
-            <li>soft skills</li>
-            <li>intérêts</li>
-            <li>portfolio</li>
-        </ul>
-    </nav> -->
 
+        /**********************************************/
+        // function to set a given theme/color-scheme
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        // function to toggle between light and dark theme
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+
+        // Immediately invoked function to set the theme on initial load
+        (function () {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                theme.set('theme-dark');
+            } else {
+                theme.set('theme-light');
+            }
+        })();
+    </script>
 </body>
+
 </html>
