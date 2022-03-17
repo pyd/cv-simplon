@@ -25,7 +25,11 @@ a {
             flex-direction: column;
   }
   .page .titlebar {
-    padding: 1em 0;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    padding: .8rem 0 .8rem .5rem;
   }
 }
 
@@ -37,17 +41,18 @@ a {
             flex-direction: row;
   }
   .page .titlebar {
-    padding: 0 1em;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding: .5rem .8rem 0 .8rem;
+  }
+  .page .titlebar .title {
     -webkit-writing-mode: tb-rl;
         -ms-writing-mode: tb-rl;
             writing-mode: tb-rl;
     -webkit-transform: rotate(-180deg);
             transform: rotate(-180deg);
-  }
-  .page .titlebar .back-link {
-    margin-top: 70px;
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
   }
 }
 
@@ -185,6 +190,21 @@ a {
 
 .page .content {
   background-color: #7ed2f8;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+header.titlebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header.titlebar .title {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;

@@ -24,24 +24,29 @@ a {
 
 /* two halfs are side by side in landscape and one on another in portrait */
 @media screen and (orientation:portrait) {
+    // items are side by side
     .page {
         flex-direction: column;
     }
+    // arrow is on the left and title on the right
     .page .titlebar {
-        padding: 1em 0;
+        flex-direction: row-reverse;
+        padding: .8rem 0 .8rem .5rem;
     }
 } @media screen and (orientation:landscape) {
+    // items are one above the other
     .page {
         flex-direction: row;
     }
+    // arrow is on top and title is below 
     .page .titlebar {
-        padding: 0 1em;
+        flex-direction: column-reverse;
+        padding: .5rem .8rem 0 .8rem;
+    }
+    // title is written from bottom to top
+    .page .titlebar .title {
         writing-mode: tb-rl;
         transform: rotate(-180deg);
-    }
-    .page .titlebar .back-link {
-        margin-top: 70px;
-        transform: rotate(180deg);
     }
 }
 
@@ -150,4 +155,16 @@ a {
 .page .content {
     background-color: $primary-color;
     flex-grow: 1;
+}
+
+// Each main content page e.g. 'compétences', 'profil'... has a bar on top or left depending
+// on the page orientation with a title and a link to homepage
+// see media query above for back-link 
+header.titlebar {
+    display: flex;
+    justify-content: space-between;
+}
+
+header.titlebar .title {
+    flex-grow: 1;   
 }
