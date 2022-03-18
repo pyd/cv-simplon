@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:wght@300;400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://kit.fontawesome.com/be4f448ec2.js" crossorigin="anonymous"></script>
     <title>pyd</title>
 </head>
 
@@ -31,9 +32,15 @@
             </ul>
         </nav>
     </div>
-    <div class="container">
-        <button id="switch" onclick="theme.toggle()">theme</button>
+
+    <div id="switch-container" onclick="theme.toggle()">
+        <div class="switch">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </div>
     </div>
+
     <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 

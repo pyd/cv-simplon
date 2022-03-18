@@ -42,6 +42,11 @@ a {
         flex-direction: row-reverse;
         padding: .8rem 0 .8rem .5rem;
     }
+    // move dark/light mode switch
+    #switch-container {
+        // display: none;
+        left: 80%
+    }
 } @media screen and (orientation:landscape) {
     // items are one above the other
     .page {
@@ -59,6 +64,7 @@ a {
     }
 }
 
+// each page
 .page {
     width: 100%;
     min-height: 100%;
@@ -165,3 +171,53 @@ header.titlebar .title {
     color: var(--txt-secondary);
     flex-grow: 1;
 }
+
+/****  DARK MODE ***********************************************************/
+
+#switch-container {
+    position: absolute;
+    bottom: 1em;
+    left:50%;
+    transform: translate(-50%, 0);
+    margin: 0;
+    padding: 0;
+}
+      
+#switch-container .switch {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+    width: 50px;
+    height:26px;
+    background-color: gray;
+    border-radius: 30px;
+    padding: 5px;
+    cursor: pointer;
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // transform: scale(1.5);
+}
+
+#switch-container .switch .ball {
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    position: absolute;
+    transition: transform 0.2s linear;
+}
+
+#switch-container .switch .ball.darkMode {
+    transform: translatex(24px);
+}
+
+#switch-container .switch .fa-moon, .fa-sun {
+    color: #f1c40f;
+}    
