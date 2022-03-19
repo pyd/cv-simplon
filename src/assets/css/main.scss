@@ -91,8 +91,14 @@ a {
     font-family: 'Titillium Web', sans-serif;
     font-weight: 900;
     font-size: 2em;
-    color: var(--txt-primary);
     text-align: center;
+  }
+
+// text has bg colors but is revealed by shadows
+#home .whoami .item {
+  color: var(--bg-primary);
+  text-shadow: 1px 0px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 .1em #556166;
+
 }
 
 #home .whoami > * {
