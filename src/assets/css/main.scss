@@ -73,26 +73,58 @@ a {
     flex-grow: 1; 
 }
 
-/****  HOME PAGE : one half is my identity & job, the other is nav **************************************/
-
-#home > * {
+// HOME PAGE : one half is about me, the other is nav
+#home  {
+  > * {
     flex-basis: 50%;
+  }
+  .whoami {
+    background-color: var(--bg-primary);
+    .identity {
+      font-family: 'Titillium Web', sans-serif;
+      font-weight: 900;
+      font-size: 2em;
+      height: 100%;
+      .wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  
+    .profile {
+      display: none;
+      height: 100%;
+      width: 100%;
+      .wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // width: 100%;
+        justify-content: flex-end;
+        .photo, .coordonates {
+          flex-basis: 50%;
+        }
+        .coordonates {
+          text-align: left;
+        }
+        .pitch {
+          flex-basis: 100%;
+          font-size: .5em;
+          text-align: justify;
+        }
+      }
+    }
+  }
 }
 
-/****  HOME - WHOAMI ************************************************************************************/
-// Content is centered H & V
-// On rollover the content border is visible
-#home .whoami {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-primary);
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: 900;
-    font-size: 2em;
-    text-align: center;
-  }
+
 
 // text has bg colors but is revealed by shadows
 #home .whoami .item {
@@ -101,9 +133,9 @@ a {
 
 }
 
-#home .whoami > * {
-    padding: 1em;   // set space to see the border on rollover
-}
+// #home .whoami > * {
+//     padding: 1em;   // set space to see the border on rollover
+// }
 
 // adapt font sizes so each line has the same width
 #home .whoami .first {

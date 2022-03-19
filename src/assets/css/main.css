@@ -82,14 +82,24 @@ a {
           flex-grow: 1;
 }
 
-/****  HOME PAGE : one half is my identity & job, the other is nav **************************************/
 #home > * {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
 }
 
-/****  HOME - WHOAMI ************************************************************************************/
 #home .whoami {
+  background-color: var(--bg-primary);
+}
+
+#home .whoami .identity {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-size: 2em;
+  height: 100%;
+}
+
+#home .whoami .identity .wrapper {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,20 +113,52 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: var(--bg-primary);
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 900;
-  font-size: 2em;
   text-align: center;
+  cursor: pointer;
+}
+
+#home .whoami .profile {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+#home .whoami .profile .wrapper {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#home .whoami .profile .wrapper .photo, #home .whoami .profile .wrapper .coordonates {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+#home .whoami .profile .wrapper .coordonates {
+  text-align: left;
+}
+
+#home .whoami .profile .wrapper .pitch {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  font-size: .5em;
+  text-align: justify;
 }
 
 #home .whoami .item {
   color: var(--bg-primary);
   text-shadow: 1px 0px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 0.1em #556166;
-}
-
-#home .whoami > * {
-  padding: 1em;
 }
 
 #home .whoami .first {
