@@ -20,7 +20,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-size: 1 rem;
-  color: green;
+  color: var(--txt-primary);
 }
 
 a {
@@ -72,7 +72,6 @@ a {
 
 .page {
   width: 100%;
-  min-height: 100%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,6 +116,32 @@ a {
   cursor: pointer;
 }
 
+@media screen and (orientation: portrait) {
+  #home .whoami .identity .wrapper .item {
+    color: var(--bg-primary);
+    text-shadow: 0 1px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 0.1em #556166;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  #home .whoami .identity .wrapper .item {
+    color: var(--bg-primary);
+    text-shadow: 1px 0px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 0.1em #556166;
+  }
+}
+
+#home .whoami .identity .wrapper .item .first {
+  font-size: 1em;
+}
+
+#home .whoami .identity .wrapper .item .last {
+  font-size: 1.18em;
+}
+
+#home .whoami .identity .wrapper .item .job {
+  font-size: 1.28em;
+}
+
 #home .whoami .profile {
   display: none;
   height: 100%;
@@ -140,9 +165,13 @@ a {
           justify-content: flex-end;
 }
 
-#home .whoami .profile .wrapper .photo, #home .whoami .profile .wrapper .coordonates {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+#home .whoami .profile .wrapper .photo {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #12cdea;
 }
 
 #home .whoami .profile .wrapper .coordonates {
@@ -152,34 +181,11 @@ a {
 #home .whoami .profile .wrapper .pitch {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
-  font-size: .5em;
+  font-size: 1.5rem;
+  padding: 1em;
   text-align: justify;
 }
 
-#home .whoami .item {
-  color: var(--bg-primary);
-  text-shadow: 1px 0px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 0.1em #556166;
-}
-
-#home .whoami .first {
-  font-size: 1em;
-}
-
-#home .whoami .last {
-  font-size: 1.18em;
-}
-
-#home .whoami .job {
-  font-size: 1.28em;
-}
-
-#home .whoami a:hover {
-  border-width: 1px;
-  border-style: solid;
-  border-color: var(--text-primary);
-}
-
-/****  HOME - NAV  *******************************************************************************/
 #home nav {
   background-color: var(--bg-secondary);
   color: var(--txt-secondary);
@@ -213,7 +219,7 @@ a {
   gap: .1em;
 }
 
-#home nav li a {
+#home nav ul li a {
   display: block;
   padding: 1em 0;
   text-align: center;
@@ -306,5 +312,74 @@ header.titlebar .title {
 
 #switch-container .switch .fa-moon, .fa-sun {
   color: #f1c40f;
+}
+
+#competences .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#competences .content .logos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  height: 90%;
+}
+
+#competences .content .logos .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (orientation: landscape) {
+  #competences .content .logos .group {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+  }
+}
+
+#competences .content .logos .group .item {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  text-align: center;
+}
+
+#competences .content .logos .group .item img {
+  height: 64px;
+}
+
+@media screen and (min-width: 992px) {
+  #competences .content .logos .group .item img {
+    height: 128px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

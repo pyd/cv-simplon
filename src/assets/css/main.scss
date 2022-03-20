@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;900&display=swap');
 
-// Themes colors
+// variables for dark and light theme
 .theme-light {
     --bg-primary: #bed9e5;
     --bg-secondary: rgb(245, 208, 234);
@@ -16,14 +16,15 @@
     --txt-secondary: white;
  }
 
-// Global
+
+// Globals
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
     font-size: 1 rem;
-    color: green;
+    color: var(--txt-primary);
 }
 
 a {
@@ -31,7 +32,10 @@ a {
     color: inherit;
 }
 
-// two halfs are side by side in landscape and one on another in portrait
+// handle screen rotation on mobile
+// each page is divided in 2 parts
+// in portrait mode on on another
+// in landscape mode side by side
 @media screen and (orientation:portrait) {
     // items are side by side
     .page {
@@ -67,17 +71,19 @@ a {
 // each page
 .page {
     width: 100%;
-    min-height: 100%;
+    // min-height: 100%;
     height: 100%;
     display: flex;
     flex-grow: 1; 
 }
 
 // HOME PAGE : one half is about me, the other is nav
+
 #home  {
   > * {
     flex-basis: 50%;
   }
+
   .whoami {
     background-color: var(--bg-primary);
     .identity {
@@ -93,6 +99,28 @@ a {
         align-items: center;
         text-align: center;
         cursor: pointer;
+        // a line of text : first, last, job
+        .item {
+          @media screen and (orientation:portrait) {
+            color: var(--bg-primary);
+            text-shadow: 0 1px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 .1em #556166;
+          }
+          @media screen and (orientation:landscape) {
+            color: var(--bg-primary);
+            text-shadow: 1px 0px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 .1em #556166;
+          }
+          // firstname
+          .first {
+            font-size: 1em;
+          }
+          // last name 
+          .last {
+            font-size: 1.18em;
+          }
+          .job {
+            font-size: 1.28em;
+          }
+        }
       }
     }
   
@@ -108,55 +136,27 @@ a {
         flex-wrap: wrap;
         // width: 100%;
         justify-content: flex-end;
-        .photo, .coordonates {
-          flex-basis: 50%;
+        .photo {
+          // in landscape mode, coordonates takes more than 60% of the screen
+          // so we keep this under 40%
+          flex-basis: 30%;
+          flex-grow: 1;
+          background-color: #12cdea;
         }
         .coordonates {
           text-align: left;
         }
         .pitch {
           flex-basis: 100%;
-          font-size: .5em;
+          font-size: 1.5rem;
+          padding: 1em;
           text-align: justify;
         }
       }
     }
   }
-}
 
-
-
-// text has bg colors but is revealed by shadows
-#home .whoami .item {
-  color: var(--bg-primary);
-  text-shadow: 1px 0px 2px var(--bg-secondary), 0 0 1.4rem #76878e, 0 0 .1em #556166;
-
-}
-
-// #home .whoami > * {
-//     padding: 1em;   // set space to see the border on rollover
-// }
-
-// adapt font sizes so each line has the same width
-#home .whoami .first {
-    font-size: 1em;
-}
-#home .whoami .last {
-    font-size: 1.18em;
-}
-#home .whoami .job {
-    font-size: 1.28em;
-}
-
-#home .whoami a:hover {
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--text-primary);
-}
-
-/****  HOME - NAV  *******************************************************************************/
-
-#home nav {
+  nav {
     background-color: var(--bg-secondary);
     color: var(--txt-secondary);
     display: flex;
@@ -164,25 +164,27 @@ a {
     align-items: center;
     font-family: 'Roboto', sans-serif;
     font-size: 1.3em;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      flex-basis: 100%;
+      gap: .1em;
+
+      li a {
+        display: block;
+        padding: 1em 0;
+        text-align: center;
+        width: 100%;
+        text-transform: capitalize;
+      }
+    }
+  }
 }
 
-#home nav ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    flex-basis: 100%;
-    gap: .1em;
-}
-
-#home nav li a {
-    display: block;
-    padding: 1em 0;
-    text-align: center;
-    width: 100%;
-    text-transform: capitalize;
-}
 
 /****  PAGES : TITLEBAR **************************************************************************/
 
@@ -259,3 +261,44 @@ header.titlebar .title {
 #switch-container .switch .fa-moon, .fa-sun {
     color: #f1c40f;
 }    
+
+
+// hard skills page
+#competences {
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 90%;
+      height: 90%;
+      // border: 1px solid red;
+      .group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content : space-between;
+        // border: 1px solid green;
+        @media screen and (orientation:landscape) {
+          flex-direction:column;
+          height: 100%;
+        }
+        .item {
+          // border: 1px solid green;
+          flex-grow: 0;
+          flex-shrink: 0;
+          text-align: center;;
+          img {
+            height: 64px;
+            @media screen and (min-width: 992px) {
+              height: 128px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
