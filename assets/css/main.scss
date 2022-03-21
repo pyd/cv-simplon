@@ -34,35 +34,6 @@ a {
     color: inherit;
 }
 
-// handle screen rotation on mobile
-// each page is divided in 2 parts
-// in portrait mode on on another
-// in landscape mode side by side
-@media screen and (orientation:portrait) {
-    // arrow is on the left and title on the right
-    .page .titlebar {
-        // flex-direction: row-reverse;
-        // padding: .8rem 0 .8rem .5rem;
-    }
-    // move dark/light mode switch
-    #switch-container {
-        // display: none;
-        left: 80%
-    }
-} @media screen and (orientation:landscape) {
-
-    // arrow is on top and title is below 
-    .page .titlebar {
-        // flex-direction: column-reverse;
-        // padding: .5rem .8rem 0 .8rem;
-    }
-    // title is written from bottom to top
-    .page .titlebar .title {
-        // writing-mode: tb-rl;
-        // transform: rotate(-180deg);
-    }
-}
-
 // style for all pages
 .page {
     // 2 éléments side by side in landscape mode and one on another in protrait mode
@@ -246,6 +217,9 @@ a {
     position: absolute;
     bottom: 1em;
     left:50%;
+    @media screen and (orientation:portrait) {
+      left: 80%;
+    }
     transform: translate(-50%, 0);
     margin: 0;
     padding: 0;
@@ -277,11 +251,12 @@ a {
             left: 2px;
             position: absolute;
             transition: transform 0.2s linear;
+
+            &.darkMode {
+              transform: translatex(24px);
+            }
         }
 
-        &.darkMode {
-          transform: translatex(24px);
-        }
 
         .fa-moon, .fa-sun {
           color: #f1c40f;

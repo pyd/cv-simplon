@@ -29,12 +29,6 @@ a {
   color: inherit;
 }
 
-@media screen and (orientation: portrait) {
-  #switch-container {
-    left: 80%;
-  }
-}
-
 .page {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -314,6 +308,12 @@ a {
   padding: 0;
 }
 
+@media screen and (orientation: portrait) {
+  #switch-container {
+    left: 80%;
+  }
+}
+
 #switch-container .switch {
   margin: 0;
   padding: 0;
@@ -352,7 +352,7 @@ a {
   transition: transform 0.2s linear, -webkit-transform 0.2s linear;
 }
 
-#switch-container .switch.darkMode {
+#switch-container .switch .ball.darkMode {
   -webkit-transform: translatex(24px);
           transform: translatex(24px);
 }
