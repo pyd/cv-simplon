@@ -214,15 +214,24 @@ a {
 }
 
 #switch-container {
+  // bottom & centered X in home page
     position: absolute;
     bottom: 1em;
     left:50%;
-    @media screen and (orientation:portrait) {
-      left: 80%;
-    }
     transform: translate(-50%, 0);
     margin: 0;
     padding: 0;
+
+    &.pos2 {
+      transform: translate(0, 0);
+      left: 0;
+      
+      @media screen and (orientation: portrait) {
+        top: 0;
+        left: 100%;
+        transform: translate(-120%, 16px);
+      }
+    }
 
     .switch {
         margin: 0;

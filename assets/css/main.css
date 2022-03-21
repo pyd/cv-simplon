@@ -308,9 +308,18 @@ a {
   padding: 0;
 }
 
+#switch-container.pos2 {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  left: 0;
+}
+
 @media screen and (orientation: portrait) {
-  #switch-container {
-    left: 80%;
+  #switch-container.pos2 {
+    top: 0;
+    left: 100%;
+    -webkit-transform: translate(-120%, 16px);
+            transform: translate(-120%, 16px);
   }
 }
 
