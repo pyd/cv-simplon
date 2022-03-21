@@ -227,7 +227,8 @@ header.titlebar {
 }
 
 header.titlebar .title {
-    flex-grow: 1;   
+    flex-grow: 1;
+    text-transform: capitalize; 
 }
 
 /****  PAGES : CONTENT ******************************************************/
@@ -329,7 +330,7 @@ header.titlebar .title {
   }
 }
 
-// formations .page
+// formations page
 #formations {
 
   .content {
@@ -360,7 +361,7 @@ header.titlebar .title {
           font-size: 1.2rem;
           font-weight: 900;
           @media screen and (orientation: landscape){
-           padding-right: 20px;
+           padding-right: 20px; // put some space after date to separate with 'what' in landscape
           }
         }
 
@@ -389,7 +390,72 @@ header.titlebar .title {
           padding: .3rem 0 .3rem 1rem;
           margin-left: 1rem;
           font-size: .9rem;
-          border-left: 1px solid white;
+          border-left: .3rem solid white;
+        }
+      }
+    }
+  }
+}
+
+// experience page
+#experience {
+
+  .content {
+    @media screen and (orientation: landscape) {
+      padding: 0 10%;
+    }
+    @media screen and (orientation: portrait) and (min-width: 800px) {
+      padding: 0 10%;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      @media screen and (orientation: portrait) and (min-heiht: 810px) {
+        justify-content: center;
+        gap: 2rem;
+      }
+      // padding-bottom: 80px;  // this is where the darkmode switch is places in portrait mode
+      
+      .item {
+        display: flex;
+        flex-wrap: wrap;
+        $lineHeight: 1.8rem;
+        padding: 0 5px;
+
+        .when {
+          line-height: $lineHeight;
+          // background-color: orange;
+          font-size: 1.2rem;
+          font-weight: 900;
+          @media screen and (orientation: landscape){
+           padding-right: 20px; // put some space after date to separate with 'what' in landscape
+          }
+        }
+        
+        .where {
+          line-height: $lineHeight;
+          // background-color: lightblue;
+          text-align: right;
+          flex-grow: 1;
+        }
+        
+        .what {
+          // background-color: lightgreen;
+          line-height: $lineHeight;
+          font-size: 1rem;
+          font-weight: 900;
+          width: 100%;
+        }
+
+        .description {
+          flex-basis: 100%;
+          padding: .3rem 0 .3rem 1rem;
+          margin-left: 1rem;
+          font-size: .9rem;
+          border-left: .3rem solid white;
         }
       }
     }

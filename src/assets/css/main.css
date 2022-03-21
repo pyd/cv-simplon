@@ -291,6 +291,7 @@ header.titlebar .title {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  text-transform: capitalize;
 }
 
 /****  PAGES : CONTENT ******************************************************/
@@ -517,6 +518,85 @@ header.titlebar .title {
   padding: .3rem 0 .3rem 1rem;
   margin-left: 1rem;
   font-size: .9rem;
-  border-left: 1px solid white;
+  border-left: .3rem solid white;
+}
+
+@media screen and (orientation: landscape) {
+  #experience .content {
+    padding: 0 10%;
+  }
+}
+
+@media screen and (orientation: portrait) and (min-width: 800px) {
+  #experience .content {
+    padding: 0 10%;
+  }
+}
+
+#experience .content .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 100%;
+}
+
+@media screen and (orientation: portrait) and (min-heiht: 810px) {
+  #experience .content .wrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 2rem;
+  }
+}
+
+#experience .content .wrapper .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 5px;
+}
+
+#experience .content .wrapper .item .when {
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+@media screen and (orientation: landscape) {
+  #experience .content .wrapper .item .when {
+    padding-right: 20px;
+  }
+}
+
+#experience .content .wrapper .item .where {
+  line-height: 1.8rem;
+  text-align: right;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#experience .content .wrapper .item .what {
+  line-height: 1.8rem;
+  font-size: 1rem;
+  font-weight: 900;
+  width: 100%;
+}
+
+#experience .content .wrapper .item .description {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  padding: .3rem 0 .3rem 1rem;
+  margin-left: 1rem;
+  font-size: .9rem;
+  border-left: .3rem solid white;
 }
 /*# sourceMappingURL=main.css.map */
