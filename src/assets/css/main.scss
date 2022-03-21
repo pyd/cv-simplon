@@ -9,6 +9,7 @@
 }
 
 .theme-dark {
+  $bg-secondary: orange;
     --bg-primary: #06292E;
     --bg-secondary: #0B4047;
     --color-accent: #12cdea;
@@ -23,8 +24,9 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    font-size: 1 rem;
+    font-size: 1rem;
     color: var(--txt-primary);
+    font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -128,7 +130,6 @@ a {
       display: none;
       height: 100%;
       width: 100%;
-      font-family: 'Roboto', sans-serif;
       .wrapper {
         height: 100%;
         width: 100%;
@@ -188,7 +189,6 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.3em;
 
     ul {
@@ -323,6 +323,73 @@ header.titlebar .title {
               height: 128px;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+// formations .page
+#formations {
+
+  .content {
+    @media screen and (orientation: landscape) {
+      padding: 0 10%;
+    }
+    @media screen and (orientation: portrait) and (min-width: 800px) {
+      padding: 0 10%;
+    }
+
+    // wrapper so we can resize content
+    .wrapper {
+      display: flex;
+      height: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .item {
+        display: flex;
+        flex-wrap: wrap;
+        $lineHeight: 1.8rem;
+        padding: 0 5px;
+
+        .when {
+          line-height: $lineHeight;
+          font-size: 1.2rem;
+          font-weight: 900;
+          @media screen and (orientation: landscape){
+           padding-right: 20px;
+          }
+        }
+
+        .where {
+          line-height: $lineHeight;
+          text-align: right;
+          flex-grow: 1;
+        }
+
+        .what {
+          line-height: $lineHeight;
+          font-size: 1rem;
+          font-weight: 900;
+          order: 1;
+          @media screen and (orientation: landscape) {
+            order: 0;
+          }
+          @media screen and (orientation: portrait) {
+            width: 100%;
+          }
+        }
+
+        .description {
+          flex-basis: 100%;
+          order: 2;
+          padding: .3rem 0 .3rem 1rem;
+          margin-left: 1rem;
+          font-size: .9rem;
+          border-left: 1px solid white;
         }
       }
     }

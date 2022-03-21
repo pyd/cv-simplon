@@ -15,25 +15,79 @@
 </head>
 
 <body>
-    <div id="profil" class="page">
+    <div id="formations" class="page">
 
-        <header class="titlebar">
-            <div class="title">
+      <header class="titlebar">
+        <div class="title">
                 formations
             </div>
             <a href="index.html" class="back-link">
-                <i class="fa-solid fa-circle-arrow-left"></i>
+              <i class="fa-solid fa-circle-arrow-left"></i>
             </a>
         </header>
 
         <div class="content">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-            took a galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-            popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+
+          <div class="wrapper">
+
+            <div class="item">
+              <div class="when">2022</div>
+              <div class="what">Formation developpeur frontend</div>
+              <div class="where">Simplon - Roubaix</div>
+            </div>
+            
+            <div class="item">
+              <div class="when">2015</div>
+              <div class="what">MOOC Micro controlleurs</div>
+              <div class="where">École polytechnique de Lausanne</div>
+              <div class="description">Arduino<br>langage C</div>
+            </div>
+            
+            <div class="item">
+              <div class="when">2014</div>
+              <div class="what">MOOC DBMS</div>
+              <div class="where">Stanford University</div>
+              <div class="description">
+                Fondamentaux de l'algèbre relationnelle<br>
+                SQL avancé
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="when">2004</div>
+              <div class="what">BTS informatique de gestion option services internet</div>
+              <div class="where">AFPA de Blois</div>
+              <div class="description">
+                Algorithmique avec le langage ASP
+                Modélisation et accès aux données - SQL Server
+                Interface utilisateur avec HTML CSS et initiation Javascript
+                Initiation serveur web - IIS
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="when">1994</div>
+              <div class="what">Licence de Droit</div>
+              <div class="where">Université de Lille II</div>
+            </div>
+            
+          </div>
+
+        </div>
+          
     </div>
+
+    <!-- switch for dark/light mode -->
+    <div id="switch-container" onclick="theme.toggle()">
+      <div class="switch">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
 </body>
 
 </html>

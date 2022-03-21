@@ -19,8 +19,9 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  font-size: 1 rem;
+  font-size: 1rem;
   color: var(--txt-primary);
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -146,7 +147,6 @@ a {
   display: none;
   height: 100%;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
 }
 
 #home .whoami .profile .wrapper {
@@ -246,7 +246,6 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: 'Roboto', sans-serif;
   font-size: 1.3em;
 }
 
@@ -428,5 +427,96 @@ header.titlebar .title {
   #competences .content .logos .group .item img {
     height: 128px;
   }
+}
+
+@media screen and (orientation: landscape) {
+  #formations .content {
+    padding: 0 10%;
+  }
+}
+
+@media screen and (orientation: portrait) and (min-width: 800px) {
+  #formations .content {
+    padding: 0 10%;
+  }
+}
+
+#formations .content .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#formations .content .wrapper .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 5px;
+}
+
+#formations .content .wrapper .item .when {
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+@media screen and (orientation: landscape) {
+  #formations .content .wrapper .item .when {
+    padding-right: 20px;
+  }
+}
+
+#formations .content .wrapper .item .where {
+  line-height: 1.8rem;
+  text-align: right;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#formations .content .wrapper .item .what {
+  line-height: 1.8rem;
+  font-size: 1rem;
+  font-weight: 900;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+@media screen and (orientation: landscape) {
+  #formations .content .wrapper .item .what {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  #formations .content .wrapper .item .what {
+    width: 100%;
+  }
+}
+
+#formations .content .wrapper .item .description {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  padding: .3rem 0 .3rem 1rem;
+  margin-left: 1rem;
+  font-size: .9rem;
+  border-left: 1px solid white;
 }
 /*# sourceMappingURL=main.css.map */
