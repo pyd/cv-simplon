@@ -94,7 +94,7 @@ a {
 #home .whoami .identity {
   font-family: 'Titillium Web', sans-serif;
   font-weight: 900;
-  font-size: 2em;
+  font-size: 2rem;
   height: 100%;
 }
 
@@ -131,15 +131,15 @@ a {
   }
 }
 
-#home .whoami .identity .wrapper .item .first {
+#home .whoami .identity .wrapper .item.first {
   font-size: 1em;
 }
 
-#home .whoami .identity .wrapper .item .last {
+#home .whoami .identity .wrapper .item.last {
   font-size: 1.18em;
 }
 
-#home .whoami .identity .wrapper .item .job {
+#home .whoami .identity .wrapper .item.job {
   font-size: 1.28em;
 }
 
