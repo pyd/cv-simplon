@@ -39,14 +39,10 @@ a {
 // in portrait mode on on another
 // in landscape mode side by side
 @media screen and (orientation:portrait) {
-    // items are side by side
-    .page {
-        flex-direction: column;
-    }
     // arrow is on the left and title on the right
     .page .titlebar {
-        flex-direction: row-reverse;
-        padding: .8rem 0 .8rem .5rem;
+        // flex-direction: row-reverse;
+        // padding: .8rem 0 .8rem .5rem;
     }
     // move dark/light mode switch
     #switch-container {
@@ -54,38 +50,71 @@ a {
         left: 80%
     }
 } @media screen and (orientation:landscape) {
-    // items are one above the other
-    .page {
-        flex-direction: row;
-    }
+
     // arrow is on top and title is below 
     .page .titlebar {
-        flex-direction: column-reverse;
-        padding: .5rem .8rem 0 .8rem;
+        // flex-direction: column-reverse;
+        // padding: .5rem .8rem 0 .8rem;
     }
     // title is written from bottom to top
     .page .titlebar .title {
-        writing-mode: tb-rl;
-        transform: rotate(-180deg);
+        // writing-mode: tb-rl;
+        // transform: rotate(-180deg);
     }
 }
 
-// each page
+// style for all pages
 .page {
-    width: 100%;
+    // 2 éléments side by side in landscape mode and one on another in protrait mode
+    flex-direction: row;
+    @media screen and (orientation:portrait) {
+      flex-direction: column;
+    }
+  
+    // width: 100%;
     // min-height: 100%;
     height: 100%;
     display: flex;
-    flex-grow: 1; 
+    flex-grow: 1;
+
+    header.titlebar {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: .5rem .8rem 0 .8rem;
+      @media screen and (orientation: portrait) {
+        flex-direction: row-reverse;
+        padding: .8rem 0 .8rem .5rem;
+      }
+      justify-content: space-between;
+      text-align: center;
+      font-size: 1.6em;
+      background-color: var(--bg-secondary);
+      color: var(--txt-primary);
+
+      .title {
+        flex-grow: 1;
+        text-transform: capitalize;
+        @media screen and (orientation: landscape) {
+          writing-mode: tb-rl;
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    .content {
+      background-color: var(--bg-primary);
+      color: var(--txt-secondary);
+      flex-grow: 1;
+    }
 }
 
-// HOME PAGE : one half is about me, the other is nav
 
+// home page
 #home  {
   > * {
     flex-basis: 50%;
   }
-
+  // home page : one side with identity and profile
   .whoami {
     background-color: var(--bg-primary);
     .identity {
@@ -182,8 +211,10 @@ a {
       }
     }
   }
-
+  // home page : one side with site navigation
   nav {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
     background-color: var(--bg-secondary);
     color: var(--txt-secondary);
     display: flex;
@@ -202,7 +233,7 @@ a {
 
       li a {
         display: block;
-        padding: 1em 0;
+        padding: .58em 0;
         text-align: center;
         width: 100%;
         text-transform: capitalize;
@@ -211,36 +242,6 @@ a {
   }
 }
 
-
-/****  PAGES : TITLEBAR **************************************************************************/
-
-// Each main content page e.g. 'compétences', 'profil'... has a bar on top or left depending
-// on the page orientation with a title and a link to homepage
-// see media query above for back-link 
-header.titlebar {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    font-size: 1.6em;
-    background-color: var(--bg-secondary);
-    color: var(--txt-primary);
-}
-
-header.titlebar .title {
-    flex-grow: 1;
-    text-transform: capitalize; 
-}
-
-/****  PAGES : CONTENT ******************************************************/
-
-.page .content {
-    background-color: var(--bg-primary);
-    color: var(--txt-secondary);
-    flex-grow: 1;
-}
-
-/****  DARK MODE ***********************************************************/
-
 #switch-container {
     position: absolute;
     bottom: 1em;
@@ -248,46 +249,45 @@ header.titlebar .title {
     transform: translate(-50%, 0);
     margin: 0;
     padding: 0;
+
+    .switch {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    
+        width: 50px;
+        height:26px;
+        background-color: gray;
+        border-radius: 30px;
+        padding: 5px;
+        cursor: pointer;
+    
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .ball {
+            width: 22px;
+            height: 22px;
+            background-color: #606060;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            position: absolute;
+            transition: transform 0.2s linear;
+        }
+
+        &.darkMode {
+          transform: translatex(24px);
+        }
+
+        .fa-moon, .fa-sun {
+          color: #f1c40f;
+        }
+    }
 }
-      
-#switch-container .switch {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-
-    width: 50px;
-    height:26px;
-    background-color: gray;
-    border-radius: 30px;
-    padding: 5px;
-    cursor: pointer;
-
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // transform: scale(1.5);
-}
-
-#switch-container .switch .ball {
-    width: 22px;
-    height: 22px;
-    background-color: #606060;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    position: absolute;
-    transition: transform 0.2s linear;
-}
-
-#switch-container .switch .ball.darkMode {
-    transform: translatex(24px);
-}
-
-#switch-container .switch .fa-moon, .fa-sun {
-    color: #f1c40f;
-}    
 
 
 // hard skills page
@@ -417,7 +417,6 @@ header.titlebar .title {
         justify-content: center;
         gap: 2rem;
       }
-      // padding-bottom: 80px;  // this is where the darkmode switch is places in portrait mode
       
       .item {
         display: flex;
@@ -427,7 +426,6 @@ header.titlebar .title {
 
         .when {
           line-height: $lineHeight;
-          // background-color: orange;
           font-size: 1.2rem;
           font-weight: 900;
           @media screen and (orientation: landscape){
@@ -437,13 +435,11 @@ header.titlebar .title {
         
         .where {
           line-height: $lineHeight;
-          // background-color: lightblue;
           text-align: right;
           flex-grow: 1;
         }
         
         .what {
-          // background-color: lightgreen;
           line-height: $lineHeight;
           font-size: 1rem;
           font-weight: 900;
